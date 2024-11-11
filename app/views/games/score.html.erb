@@ -1,0 +1,10 @@
+<div class="container">
+  <ul class="list-group list-group-horizontal col-12">
+    <% @letters.gsub(" ","").chars do |letter| %>
+      <li class="list-group-item mx-2 bg-primary text-white"><%= letter %></li>
+    <% end %> 
+  </ul>
+  <p>Your score: <%= @score %></p>
+  <p><%= @message %></p>
+  <%= link_to "New attempt", new_path %>
+</div>

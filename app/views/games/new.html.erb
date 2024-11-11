@@ -1,0 +1,22 @@
+<div class="container ">
+  <div class="row">
+    <h1>New Game</h1>
+    <div class="col-sm">
+        <ul class="list-group list-group-horizontal col-12">
+          <% @letters.each do |letter| %>
+            <li class="list-group-item mx-2 bg-primary text-white"><%= letter %></li>
+          <% end %>
+        </ul>
+      <div class="input-group mb-3 col-12 mt-4">
+        <h2>What is the longest word you can find?</h2>
+        <form action="/score" method="post" data-turbo="false">
+          <input type="text" name="word" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-primary" type="submit" id="button-addon2">Button</button>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <%= hidden_field_tag :letters, @letters %>
+        </form>
+        <h3><%= @word %></h3>
+      </div>
+    </div>
+  </div>
+</div>
